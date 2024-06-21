@@ -205,7 +205,7 @@ pub(crate) fn create_vulkan_pipeline(
     let color_attachment_formats = [dynamic_rendering.color_attachment_format];
     #[cfg(feature = "dynamic-rendering")]
     let mut rendering_info = {
-        let mut rendering_info = vk::PipelineRenderingCreateInfo::builder()
+        let mut rendering_info = vk::PipelineRenderingCreateInfo::default()
             .color_attachment_formats(&color_attachment_formats);
         if let Some(depth_attachment_format) = dynamic_rendering.depth_attachment_format {
             rendering_info = rendering_info.depth_attachment_format(depth_attachment_format);
